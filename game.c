@@ -2664,6 +2664,53 @@ void sonionRH(void)
 void jbInit()
 {
 	puts("jbRoom17");
+
+	int lives = 5;
+	int choice;
+	int round;
+	int safe;
+	
+	
+	printf("Choose a chest to escape");
+
+	for (round = 1; round <=5 && lives > 0; round++)
+	{
+		safe = rand() % 5 + 1;
+
+		printf("\n Round %d of 5\n", round);
+
+		puts("\n --TREASURE ROOM-- \n");
+		puts("Gold");
+		puts("Silver");
+		puts("Bronze");
+		puts("Diamond");
+		puts ("Wood");
+	
+		printf("CHOOSE A CHEST: ");
+		scanf("%d", &choice);
+
+		if(choice == safe)
+		{
+			printf("CORRECT!! YOU WON TREASURE \n");
+			return;
+		}
+		else
+		{
+			printf("WRONG! THE WALLS START CLOSING IN");
+			lives--;
+		}
+		printf("Lives left: %d\n", lives);
+
+	
+	}
+	if (lives > 0)
+	{
+		printf("\n CONGRATS YOU ESCAPED!!\n");
+	}
+	else
+	{
+		printf("\n GAME OVER!!\n");
+	}
 }
 
 // Case 45:
