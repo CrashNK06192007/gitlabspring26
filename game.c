@@ -54,8 +54,6 @@ void function13AG(void);
 void theSigmaMethod(void);
 void jbInit(void);
 
-
->>>>>>> 92dec82 (Added initials function)
 void ip21(void);
 void folksamEV(void);
 void sonionRH(void);
