@@ -468,8 +468,11 @@ void jbInit()
 
 	};
 
-	while (lives > 0)
-	{ 
+	for (int round =1; round <=5 && lives >0; round++)
+	{
+	       	int safe = rand() % 5 +1;
+		printf("\nRound %d of 5\n", round);
+
 		puts("\n --TREASURE ROOM--");
 
 		for(int i =0; i<5; i++)
@@ -480,7 +483,7 @@ void jbInit()
 		printf("Choose a chest: ");
 		scanf("%d", &chest);
 
-		if(chest == 2)
+		if(chest == safe)
 		{
 			puts("CONGRATS, YOU CHOSE CORRECT!!");
 			break;
@@ -496,6 +499,10 @@ void jbInit()
 		if(lives <=0)
 		{
 			puts("GAME OVER!!");
+		}
+		else
+		{
+		puts("YOU SURVIVED!");
 		}
 	}		
 }
