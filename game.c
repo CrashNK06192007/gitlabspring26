@@ -106,6 +106,7 @@ void PogoAM(void);
 void aaGM(void);
 void room49game(void);
 void dleyva14(void);
+void crazy49adventure(void);
 
 void sgarcia6(void);
 void GuckMan(void);
@@ -1084,6 +1085,7 @@ int main(int argc, char *argv[])
 			{
 				puts("room49");
 				room49game();
+				crazy49adventure();
 				break;
 			}
 			case 50:
@@ -2478,6 +2480,106 @@ void room49game(void)
 {
 	printf("G.C\n");
 
+}
+
+void crazy49adventure(void)
+{
+	int choice;
+	int randomEvent;
+	printf("\nEntering Gracie's Train Station....");
+	
+	// Choice 1
+	printf("\nYou have a train scheduled at 3am.\n(1 = Go alone, 2 = Take Jiminy Cricket with you)");
+	printf("\nChoose: ");
+	scanf("%i", &choice);
+	
+	if(choice == 1)
+	{
+		printf("(;´༎ຶД༎ຶ`) YOU MEANIE\n");
+	
+	}
+	else
+	{
+		printf("✧♡(◕‿◕✿) BESTIE\n");
+	
+	}
+	
+	// Choice 2
+	printf("\n༼ ºل͟º ༼ ºل͟º ༼ ºل͟º ༽ ºل͟º ༽ ºل͟º ༽\nThe line is too long!\n(1 = cut in line, 2 = buy fast pass)");
+	printf("\nChoose: ");
+	scanf("%i", &choice);
+	
+	// Random Event
+	randomEvent = rand() % 100;
+	if(randomEvent < 50)
+	{
+		system("sl -a");
+		printf("\nThe ride malfunctions.\nYou fell!\nAAAAAAAAH");
+	
+	}
+	else
+	{
+		system("sl -F");
+		printf("\nYour train flew away!");
+	}
+	
+	// Choice 3
+	printf("\nWhat to do next?\n(1 = look at the moon, 2 = run a marathon)");
+	printf("\nChoose: ");
+	scanf("%i", &choice);
+
+	if(choice == 1)
+	{
+		system("curl wttr.in/moon");
+	}
+	else
+	{
+		system("curl -s -m 3 ascii.live/forrest");
+	
+	}
+
+
+	// Choice 4
+	printf("\nYou are feeling tired. \n(1 = Spend life savings on Gracie merch!, 2 = Buy all the food! (you currently weigh 120 lbs))");
+	printf("\nChoose: ");
+	scanf("%i", &choice);
+
+	if(choice == 1)
+	{
+		int credit_util[] = {30, 75, 100, 145};
+		int i;
+		
+		printf("Here is your credit utilization from each credit card account!\n");
+		for(i=0;i<4;i++)
+		{
+			printf("%d%% \n", credit_util[i]);
+		
+		}
+		printf("\n");
+	}
+	else
+	{
+		int weight = 120;
+		int a;
+
+		for(a=0;a<50;a++)
+		{
+			weight += 20;
+			a++;
+		}
+		printf("You now weigh %d pounds", weight);
+		printf("\n");
+	
+	}
+
+	// Choice 5
+	printf("\nCongrats! You are broke!\nGive us a rating based on your adventure");
+	printf("\n5 - Awesome\n4 - Good\n3 - Okay\n2 - Me no like\n1 - I'm suing this place\n");
+	printf("\nChoice: ");
+	scanf("%i", &choice);
+
+	printf("\nTOO BAD (╯°□°)╯ GOODBYE\n\n");	
+	return;
 }
 
 void mnFun(void)
