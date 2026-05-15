@@ -69,7 +69,7 @@ void JLeyva(void);
 void fish(void);
 void printStudent30(void);
 void gameroom30(void);
-
+void JCgame(void);
 void printInitialsAjewett(void);
 void startRoom9(void);
 
@@ -671,6 +671,7 @@ int main(int argc, char *argv[])
 			}
 			case 28:
 			{
+				JCgame();
 				puts("room28");
 				break;
 			}
@@ -3293,7 +3294,6 @@ void JLeyva(void)
 {
 	printf("JL");
 }
-
 void fish(void) 
 {
 	printf("JF");
@@ -4814,8 +4814,207 @@ void hOsuna(void)
         printf("\nHAO\n");
 }
 
+//function prototype
+int getLuck(int luck[], int size);
+void JCgame(void)
+{
+    printf("JC\n");
 
 
+    int choice = 0;
+    int health = 100;
+    int size = 10;
+    int luck[10] = {1,2,3,4,5,6,7,8,9,10};
+    char *weapons[3] = {"Katana", "Box Cutter", "Arrow"};
+    char *randomWeapon = weapons[rand() % 3];
+	int giantFrog = 100;
+	int attack = 0;
+
+    printf("You went camping with your friends.\n");
+    printf("Nighttime comes around. You and your friends go to bed.\n");
+    printf("A loud crow scream awakens you.\n");
+    printf("Your friends are gone...\n");
+
+    // Choice 1
+    printf("\nHealth: %d\n", health);
+    printf("1. Go outside the tent\n");
+    printf("0. Stay inside the tent\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You step outside and hear movement nearby.\n");
+    }
+    else
+    {
+        printf("You stay inside, but something scratches the tent.\n");
+        health -= 10;
+    }
+
+    // Choice 2
+    printf("\nHealth: %d\n", health);
+    printf("You find a %s on the ground.\n", randomWeapon);
+    printf("1. Pick it up\n");
+    printf("0. Leave it\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You take the %s with you.\n", randomWeapon);
+    }
+    else
+    {
+        printf("You leave the weapon behind.\n");
+    }
+
+    // Choice 3
+    printf("\nHealth: %d\n", health);
+    printf("You see two paths in the woods.\n");
+    printf("1. Take the dark trail\n");
+    printf("0. Walk toward the lake\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You walk down the dark trail.\n");
+
+        if(getLuck(luck, size) <= 5)
+        {
+            printf("You trip over a root and lose 15 health.\n");
+            health -= 15;
+        }
+        else
+        {
+            printf("You safely follow the trail.\n");
+        }
+    }
+    else
+    {
+        printf("You walk toward the lake.\n");
+
+        if(getLuck(luck, size) <= 4)
+        {
+            printf("A Giant Frog splashes and scares you. You lose 10 health.\n");
+            health -= 10;
+			printf("You must attack it with your %s!\n", randomWeapon);
+			while(giantFrog>0)
+			{
+				printf("Giant Frog HP: %d\n", giantFrog);
+				printf("Type 1 for a regular attack! Type 2 for a heavy attack!: ");
+				scanf("%d", &attack);
+				while(attack != 1&&attack!=2)
+				{
+					printf("Only type 1 for a regular attack or type 2 for a heavy attack: ");
+					scanf("%d", &attack);
+				}
+				if(attack==1)
+				{
+					giantFrog -= 25;
+				}
+				else
+				{
+					giantFrog -= 50;
+				}
+				printf("Nice hit! Keep attacking!\n");
+			}
+			printf("Nice! You slayed the Giant Frog.\n");
+        }
+        else
+        {
+            printf("You find footprints near the lake.\n");
+        }
+    }
+
+    // Choice 4
+    printf("\nHealth: %d\n", health);
+    printf("You find an old cabin.\n");
+    printf("1. Go inside\n");
+    printf("0. Keep walking\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You enter the cabin.\n");
+
+        if(getLuck(luck, size) <= 5)
+        {
+            printf("A creature attacks you inside! You lose 25 health.\n");
+            health -= 25;
+        }
+        else
+        {
+            printf("You find a flashlight inside the cabin.\n");
+        }
+    }
+    else
+    {
+        printf("You keep walking through the woods.\n");
+        printf("The cold night makes you weaker. You lose 10 health.\n");
+        health -= 10;
+    }
+
+    // Choice 5
+    printf("\nHealth: %d\n", health);
+    printf("You hear your friends yelling for help nearby.\n");
+    printf("1. Run toward the voices\n");
+    printf("0. Hide behind a tree\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        if(health > 0)
+        {
+            printf("You run toward the voices and find your friends!\n");
+            printf("You all escape the forest together. You win!\n");
+        }
+    }
+    else
+    {
+        printf("You hide too long and the voices disappear.\n");
+        printf("You are lost in the woods. Game over.\n");
+    }
+
+    if(health <= 0)
+    {
+        printf("\nYour health reached 0.\n");
+        printf("You did not survive the forest.\n");
+    }
+}
+//function definition
+int getLuck(int luck[], int size)
+{
+    return luck[rand() % size];
+}
 
 void stanPush(void)
 {
