@@ -2763,7 +2763,62 @@ void cmeremikwu2(void)
 
 void jbInit()
 {
-	puts("jbRoom17");
+	int round;
+    	int lives = 5;
+    	int choice;
+    	int safe;
+
+    char *treasure[] =
+    {
+        "GOLD",
+        "SILVER",
+        "DIAMOND",
+        "BRONZE",
+        "WOOD"
+    };
+
+    puts("jbRoom17");
+    puts("Choose a chest to escape");
+
+    for(round = 1; round <= 5 && lives > 0; round++)
+    {
+        printf("\nRound %d of 5\n", round);
+
+        puts("\n--TREASURE ROOM--");
+
+        for(int i = 0; i < 5; i++)
+        {
+            printf("%d. %s\n", i + 1, treasure[i]);
+        }
+
+        safe = rand() % 5 + 1;
+
+        printf("CHOOSE A CHEST: ");
+        scanf("%d", &choice);
+
+        if(choice == safe)
+        {
+            printf("CORRECT!! YOU WON TREASURE\n");
+        }
+        else
+        {
+            printf("WRONG! THE WALLS START CLOSING IN!\n");
+            lives--;
+            printf("Lives left: %d\n", lives);
+        }
+    }
+
+    if(lives > 0)
+    {
+        printf("\nCONGRATS YOU ESCAPED!!\n");
+    }
+    else
+    {
+        printf("\nGAME OVER!!\n");
+    }
+
+
+		
 }
 
 // Case 45:
