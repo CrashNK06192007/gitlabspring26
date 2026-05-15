@@ -122,7 +122,7 @@ void jkRoom41(void);
 
 void room31TwentyOneGame(void);
 int room31DrawCard(int used[]);
-int room31HitOrStand();
+int room31HitOrStand(void);
 int room31GetCardValue(int cardIndex, int *currentTotal);
 void room31PlayerTurn(int used[], char deck[][30], int *playerTotal);
 void room31DealerTurn(int used[], char deck[][30], int *dealerTotal,int dealerCard1, int dealerCard2);
